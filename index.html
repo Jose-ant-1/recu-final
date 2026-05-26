@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Comunidades y Ciudades Autónomas de España</title>
+    <link rel="stylesheet" href="index.css">
     <script src="index.js" type="module"></script>
-    <title>Title</title>
 </head>
 <body>
-<h1>Comunidades y ciudades autónomas de España</h1>
+<h1>Comunidades y Ciudades Autónomas de España</h1>
 
-<div>
-    <label>Ordenar por:</label>
-    <select id="orden">
-        <option value="nombre">Nombre</option>
-        <option value="poblacion">Población</option>
-    </select>
-    <table style="border: 1px solid black;">
-        <thead>
-            <tr>
-                <th>Comunidad/Ciudad Autónoma</th>
-                <th>Población total (Aprox.)</th>
+<div class="contenedor-principal">
+    <div class="seccion-tabla">
+        <label for="orden">Ordenar por:</label>
+        <select id="orden">
+            <option value="nombre">Nombre</option>
+            <option value="poblacion">Población</option>
+        </select>
+
+        <table>
+            <thead>
+            <tr class="header-tabla">
+                <th>Comunidad / Ciudad Autónoma</th>
+                <th>Población total (aprox.)</th>
             </tr>
-        </thead>
-        <tbody class=""></tbody>
+            </thead>
+            <tbody id="tbody-ccaa"></tbody>
+        </table>
+    </div>
 
-    </table>
+    <div class="seccion-formulario">
+        <form id="form-ccaa">
+            <label>Comunidad Autónoma:</label>
+            <input type="text" id="ccaa" readonly>
 
+            <label>Capital:</label>
+            <input type="text" id="capital" readonly>
+
+            <label>Presidente/a:</label>
+            <input type="text" id="presidente" placeholder="Nombre del presidente/a">
+
+            <label>Provincias:</label>
+            <textarea id="provincias" readonly></textarea>
+
+            <button type="button" id="btn-guardar" disabled>Guardar cambios en el Presidente/a</button>
+        </form>
+    </div>
 </div>
-
-
 </body>
 </html>

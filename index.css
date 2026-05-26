@@ -1,0 +1,93 @@
+body { font-family: sans-serif; padding: 20px; background-color: #f9f9f9; }
+
+h1 { text-align: center; }
+
+.contenedor-principal {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: flex-start; /* Alinea tabla y formulario arriba */
+}
+
+/* Estilos específicos para el Select */
+label[for="orden"] { display: block; margin-bottom: 5px; font-weight: bold; }
+#orden {
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; /* Ancho fijo para que luzca bien */
+}
+
+/* Estilos Tabla */
+.seccion-tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Esto centra el select y la tabla horizontalmente */
+    flex: 1;
+    max-width: 600px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+.header-tabla { background-color: #4CAF50; color: white; }
+th, td {
+    padding: 12px;
+    border: none; /* Eliminamos bordes de celdas */
+    border-bottom: 1px solid #eee; /* Opcional: una línea muy sutil para separar filas */
+}
+th:first-child, td:first-child { text-align: left; }  /* Nombre a la izquierda */
+th:last-child, td:last-child { text-align: right; } /* Población a la derecha */
+
+.header-tabla { background-color: #4CAF50; color: white; border-bottom: none; }
+/* Cambia la regla tr:hover existente por esta: */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+/* Estilos Formulario - Ajustado para altura */
+.seccion-formulario {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 400px;
+    border-radius: 5px;
+    /* Si quieres que ocupe más espacio, puedes usar min-height */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-ccaa { display: flex; flex-direction: column; height: 100%; }
+
+label { display: block; margin: 15px 0 5px; font-weight: bold; }
+input, textarea { width: 100%; padding: 8px; box-sizing: border-box; background: #eee; border: 1px solid #ccc; }
+textarea { flex-grow: 1; resize: none; } /* El textarea crecerá para llenar el espacio */
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:disabled { background-color: #ccc; cursor: not-allowed; }
+
+#orden {
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.seleccionada { background-color: #d1e7dd !important; }
+
