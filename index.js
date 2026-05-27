@@ -18,6 +18,15 @@ function mostrarComunidades(listaATomar = ccaa, orden) {
 }
 
 
+function guardarPresidente(nombreCcaa, presidente) {
+    const comunidad =ccaa.find(c => c.nombre === nombreCcaa);
+    if (comunidad) {
+        comunidad.presidente = presidente;
+        return true;
+    }
+    return false;
+}
+
 document.addEventListener("DOMContentLoaded", event => {
     const tabla = document.querySelector("tbody");
     const orden = document.querySelector("#orden");
@@ -60,6 +69,44 @@ document.addEventListener("DOMContentLoaded", event => {
       }
 
     });
+
+    function validar() {
+        const valor = inputPresidente.value.trim();
+        if (valor === "") {
+            btnGuardar.disabled = true;
+            inputPresidente.style.borderColor = "red";
+            return false;
+        } else {
+            btnGuardar.disabled = false;
+            inputPresidente.style.borderColor = "#ccc";
+            return true;
+        }
+    }
+
+    inputPresidente.addEventListener("input", validar);
+
+    btnGuardar.addEventListener("click", (e) => {
+        const nombreCcaa = inputCcAa.value;
+        const nuevoPresidente = inputPresidente.value;
+
+        if (validar()) {
+            if (guardarPresidente(nombreCcaa, nuevoPresidente)) {
+                mostrarMensajeExito();
+            }
+        }
+
+    })
+
+    function mostrarMensajeExito() {
+        const mensaje = document.createElement("div");
+        mensaje.textContent = "Presidente actualizado correctamente"
+        mensaje.style.color = "green";
+        mensaje.style.marginTop = "10px";
+        document.querySelector(".seccion-formulario").appendChild(mensaje);
+
+        setTimeout(() => mensaje.remove(), 4000);
+    }
+
 
 })
 
