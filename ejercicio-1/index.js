@@ -6,7 +6,7 @@ function mostrarComunidades(listaATomar = ccaa, orden) {
         listaOrden.sort((a, b) => a.nombre.localeCompare(b.nombre));
     }
     if (orden === "poblacion") {
-        listaOrden.sort((a, b) => a.poblacion_total - b.poblacion_total);
+        listaOrden.sort((a, b) => b.poblacion_total - a.poblacion_total);
     }
 
     return listaOrden.map(comunidad => `
@@ -16,7 +16,6 @@ function mostrarComunidades(listaATomar = ccaa, orden) {
         </tr>
     `).join("");
 }
-
 
 function guardarPresidente(nombreCcaa, presidente) {
     const comunidad =ccaa.find(c => c.nombre === nombreCcaa);
@@ -30,12 +29,24 @@ function guardarPresidente(nombreCcaa, presidente) {
 document.addEventListener("DOMContentLoaded", event => {
     const tabla = document.querySelector("tbody");
     const orden = document.querySelector("#orden");
+    const errorMensaje = document.querySelector("#error-presidente");
 
     const inputCcAa = document.querySelector("#ccaa");
     const inputCapital = document.querySelector("#capital");
     const inputPresidente = document.querySelector("#presidente");
     const inputProvincias = document.querySelector("#provincias");
     const btnGuardar = document.querySelector("#btn-guardar");
+
+    function resetFormulario() {
+        inputCcAa.value = "";
+        inputCapital.value = "";
+        inputPresidente.value = "";
+        inputProvincias.value = "";
+        btnGuardar.disabled = true; // Desactivamos el botón
+        inputPresidente.style.borderColor = "#ccc"; // Reseteamos el color de borde
+    }
+
+    resetFormulario();
 
     function actualizarTabla() {
         let valor = orden.value;
@@ -65,7 +76,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
           document.querySelectorAll("tr").forEach(tr => tr.classList.remove("seleccionada"));
           fila.classList.add("seleccionada");
-
+          validar()
       }
 
     });
@@ -75,10 +86,12 @@ document.addEventListener("DOMContentLoaded", event => {
         if (valor === "") {
             btnGuardar.disabled = true;
             inputPresidente.style.borderColor = "red";
+            errorMensaje.style.display = "block"; // Muestra el mensaje
             return false;
         } else {
             btnGuardar.disabled = false;
             inputPresidente.style.borderColor = "#ccc";
+            errorMensaje.style.display = "none"; // Oculta el mensaje
             return true;
         }
     }
@@ -98,13 +111,24 @@ document.addEventListener("DOMContentLoaded", event => {
     })
 
     function mostrarMensajeExito() {
+        const mensajeAnterior = document.querySelector(".mensaje-exito");
+        if (mensajeAnterior) {
+            mensajeAnterior.remove();
+        }
+
         const mensaje = document.createElement("div");
-        mensaje.textContent = "Presidente actualizado correctamente"
+        mensaje.textContent = "Presidente actualizado correctamente";
+        mensaje.className = "mensaje-exito";
         mensaje.style.color = "green";
         mensaje.style.marginTop = "10px";
+
         document.querySelector(".seccion-formulario").appendChild(mensaje);
 
-        setTimeout(() => mensaje.remove(), 4000);
+        setTimeout(() => {
+            if (mensaje.parentNode) {
+                mensaje.remove();
+            }
+        }, 4000);
     }
 
 
