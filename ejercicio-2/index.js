@@ -49,6 +49,7 @@ function mostrarDatosTabla(datos) {
                 <td>${fechaFormateada}</td>
             </tr>
         `;
+
     }).join('');
 }
 
