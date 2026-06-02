@@ -1,0 +1,28 @@
+/* Contenedor de los radio buttons */
+#radio-contenedor {
+    background-color: #e9ecef; /* gris ligeramente más oscuro que el fondo de la página */
+    padding: 15px;             /* espacio interno para que no queden pegados al borde */
+    border-radius: 8px;        /* bordes redondeados para el contenedor */
+    margin-top: 10px;          /* separación con el checkbox de arriba */
+}
+
+.idioma-box {
+    background-color: #ffffff; /* fondo blanco sobre el fondo gris oscuro */
+    border: 1px solid #ced4da; /* borde más marcado */
+}
+
+/* Efecto al seleccionar: texto se vea azul y destaque */
+.idioma-box input[type="radio"]:checked + label {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+tr.destacado {
+    color: #198754;
+    font-weight: 500;
+}
+
+tr.destacado td {
+    color: inherit;
+    font-weight: bold;
+}
