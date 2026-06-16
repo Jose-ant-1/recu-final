@@ -1,0 +1,238 @@
+/* --- ESTILOS GENERALES Y FONDO --- */
+body {
+    background-color: #121212; /* Negro suave / Oscuro */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Mensajes de carga o error */
+.loading-message { font-style: italic; color: #aaa; text-align: center; }
+.error-message { padding: 15px; background-color: #442224; color: #ff8888; border: 1px solid #663335; border-radius: 4px; }
+
+/* --- CONTENEDOR DE FILTROS --- */
+.filtros-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #2d2d2d;
+}
+
+.buscador-input {
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 6px;
+    max-width: 400px;
+    outline: none;
+}
+.buscador-input:focus {
+    border-color: #007bff;
+}
+
+/* Botones de Género del menú superior */
+.botones-genero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn-genero {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    background-color: #333333; /* Tono Gris */
+    color: #cccccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-genero:hover {
+    background-color: #444444;
+    color: #fff;
+}
+
+/* Género Seleccionado: Fondo azul y letra blanca */
+.btn-genero.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+/* --- CONTADOR DE FESTIVALES --- */
+.festivales-contador {
+    font-weight: bold;
+    color: #8a2be2; /* Color entre azul y morado (BlueViolet) */
+    margin: 15px 5px;
+    font-size: 1.1rem;
+}
+
+/* --- CONTENEDOR DE TARJETAS --- */
+.festivales-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 15px;
+}
+
+/* --- TARJETA INDIVIDUAL (Borde redondeado y bloques) --- */
+.festival-card {
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    border-radius: 12px; /* Borde redondeado */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* BLOQUE 1: Principal */
+.tarjeta-seccion-principal h2 {
+    margin: 0 0 5px 0;
+    color: #ffffff; /* Nombre en blanco */
+    font-size: 1.4rem;
+}
+
+.festival-meta {
+    color: #aaaaaa; /* Lugar y fecha en gris pequeño */
+    font-size: 0.85rem;
+    margin: 0 0 15px 0;
+}
+
+/* Fila de precio y artistas alineados */
+.festival-precio-artistas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.festival-precio {
+    color: #ffcc00; /* Precio en amarillo a la izquierda */
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.festival-artistas {
+    color: #ffffff; /* Cantidad de artistas a la derecha */
+    font-size: 0.95rem;
+}
+
+/* Contenedor de insignias de género dentro de la tarjeta */
+.festival-badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+/* Insignias de género (Similares a los botones superiores no activos) */
+.festival-badge {
+    display: inline-block;
+    background-color: #333333;
+    color: #cccccc;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+}
+
+/* BLOQUE 2: Escenarios (Separación con línea discontinua) */
+.tarjeta-seccion-escenarios {
+    margin-top: 5px;
+    padding: 15px 0;
+    border-top: 1px dashed #333;
+}
+
+.tarjeta-seccion-escenarios p {
+    margin: 4px 0;
+    color: #aaaaaa; /* Tono gris similar a meta */
+    font-size: 0.85rem;
+    letter-spacing: 1px; /* Espaciado sutil para mayúsculas */
+}
+
+/* BLOQUE 3: Sección Director */
+.director-section {
+    margin-top: 5px;
+    padding-top: 15px;
+    border-top: 1px dashed #333;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.director-section label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #888888;
+}
+
+.director-input-container {
+    display: flex;
+    gap: 8px;
+}
+
+.director-input {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Botón guardar con el color azul del género seleccionado */
+.btn-guardar {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    background-color: #007bff; /* Mismo azul que el género activo */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-guardar:disabled {
+    background-color: #444444 !important;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* Mensajes de validación del director */
+.mensaje-validacion {
+    font-size: 0.8rem;
+    min-height: 16px;
+}
+.msg-error { color: #ff6b6b; }
+.msg-exito { color: #2ecc71; }
+
+/* Mensaje sin resultados */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.1rem;
+    color: #888;
+    background: #1e1e1e;
+    border: 1px dashed #444;
+    border-radius: 8px;
+}
